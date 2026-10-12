@@ -1,0 +1,15 @@
+[tool.flet.app]
+product_name = "عيلة محمد"
+main = "main.py"
+
+[tool.briefcase]
+project_name = "عيلة محمد"
+bundle = "com.garageapp"
+version = "0.1.0"
+app_sources = ["main.py"]
+
+[tool.briefcase.app.garageapp]
+formal_name = "عيلة محمد"
+description = "دليل عيلة محمد"
+icon = "icon"
+sources = ["main.py"]
