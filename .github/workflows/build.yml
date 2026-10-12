@@ -20,4 +20,4 @@ jobs:
 
       - name: Build APK
         run: |
-          flet pack main.py --android
+          flet build apk
