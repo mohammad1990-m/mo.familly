@@ -27,3 +27,9 @@ jobs:
       - name: Build Android APK
         run: |
           flet build apk --yes
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-apk
+          path: build/s/apk/app-release.apk
