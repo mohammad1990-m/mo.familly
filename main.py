@@ -187,6 +187,3 @@ def main(page: ft.Page):
 
     page.add(background_container)
 
-if __name__ == "__main__":
-    ft.app(target=main)
-
