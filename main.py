@@ -9,7 +9,7 @@ def main(page: ft.Page):
     family_members = [
         {
             "name": "محمد",
-            "full_name": "محمد ابراهيم صالح محمد",
+            "full_name": "كامل محمد ابراهيم صالح محمد",
             "role": "الأب",
             "gender": "ذكر",
             "age": "36 سنة",
@@ -186,4 +186,3 @@ def main(page: ft.Page):
     )
 
     page.add(background_container)
-
