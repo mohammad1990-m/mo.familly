@@ -1,35 +1,37 @@
-name: Build Android APK
-on: [push]
+name: Build APK
+
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install Java (Required for Android)
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Install Flet and Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flet[all]
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+          channel: 'stable'
 
-      - name: Build Android APK
-        run: |
-          flet build apk --yes
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Release APK
+        run: flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-apk
-          path: build/s/apk/app-release.apk
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
