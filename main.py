@@ -190,5 +190,3 @@ def main(page: ft.Page):
     )
 
     page.add(background_container)
-
-ft.app(target=main)
