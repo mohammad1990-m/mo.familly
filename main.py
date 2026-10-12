@@ -4,9 +4,8 @@ def main(page: ft.Page):
     page.title = "عيلة محمد"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.padding = 0  # صفرناها عشان الخلفية المتدرجة تغطي الشاشة كاملة
+    page.padding = 0
 
-    # بيانات أفراد عائلة محمد الكريمة
     family_members = [
         {
             "name": "محمد",
@@ -41,7 +40,8 @@ def main(page: ft.Page):
         {
             "name": "نايا",
             "full_name": "نايا محمد ابراهيم محمد",
-            "role": "أنثى",
+            "role": "ابنه",
+            "gender": "أنثى",
             "age": "4 سنوات",
             "study": "KG1",
             "work": "لا يوجد",
@@ -49,7 +49,6 @@ def main(page: ft.Page):
         }
     ]
 
-    # حاوية المحتوى الرئيسي المتغيرة
     content_area = ft.Column(
         alignment=ft.MainAxisAlignment.CENTER, 
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -68,7 +67,6 @@ def main(page: ft.Page):
 
     def show_home(e=None):
         content_area.controls.clear()
-        
         content_area.controls.append(ft.Container(height=10))
         content_area.controls.append(
             ft.Text("عيلة محمد", size=30, weight=ft.FontWeight.BOLD, color=ft.colors.PINK_800)
@@ -117,7 +115,6 @@ def main(page: ft.Page):
     def show_details(member):
         nonlocal current_selected_member
         current_selected_member = member
-        
         content_area.controls.clear()
 
         content_area.controls.append(ft.Container(height=10))
@@ -176,7 +173,6 @@ def main(page: ft.Page):
 
     show_home()
 
-    # الخلفية المتداخلة المتدرجة (Gradient) من الزهري الفاتح إلى الأبيض
     background_container = ft.Container(
         content=content_area,
         expand=True,
@@ -190,3 +186,7 @@ def main(page: ft.Page):
     )
 
     page.add(background_container)
+
+if __name__ == "__main__":
+    ft.app(target=main)
+
